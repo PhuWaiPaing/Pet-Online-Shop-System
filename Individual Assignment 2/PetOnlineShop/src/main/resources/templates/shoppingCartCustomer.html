@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8">
+      <title>Enter Customer Information</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+   </head>
+   <body>
+      <th:block th:include="/_header"></th:block>
+      <th:block th:include="/_menu"></th:block>
+       
+      <div class="page-title">Please fill your information in this form.</div>
+      <form method="POST" th:object = "${customerForm}" th:action="@{/shoppingCartCustomer}">
+       <div class="customer-container">
+         <table>
+            <tr>
+               <td>Name </td>
+            </tr>
+            <tr>
+               <td><input th:field="*{name}" style="width:600%;padding:5px;border-radius: 4px;"/></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('name')}" th:errors="*{name}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Email </td>
+            </tr>
+            <tr>
+               <td><input th:field="*{email}" style="width:600%;padding:5px;border-radius: 4px;"/></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Mobile Phone </td>
+            </tr>
+            <tr>
+               <td><input th:field="*{phone}" style="width:600%;padding:5px;border-radius: 4px;"/></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Address </td>
+            </tr>
+            <tr>
+               <td><input th:field="*{address}" style="width:600%;padding:5px;border-radius: 4px;"/></td>
+               <td>
+                  <span class="error-message"
+                     th:if="${#fields.hasErrors('address')}" th:errors="*{address}" >..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td><input type="submit" value="Submit" />&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset"
+                  value="Reset" /></td>
+            </tr>
+         </table>
+       </div>   
+      </form>
+       
+   </body>
+</html>

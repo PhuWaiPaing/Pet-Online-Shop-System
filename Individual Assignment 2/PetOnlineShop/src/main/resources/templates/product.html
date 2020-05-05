@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8">
+      <title>Product</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+   </head>
+   <body>
+    
+      <th:block th:include="/_header"></th:block>
+      <th:block th:include="/_menu"></th:block>
+       
+      <div th:if="${errorMessage!= null}" class="error-message" th:utext="${errorMessage}">
+      </div>
+       
+      <form  th:object="${productForm}" th:action="@{/admin/product}"
+              method="POST" enctype="multipart/form-data">
+         <table style="text-align:left;" align="center">
+            <tr>
+               <td>Code </td>
+               <td style="color:red;">
+                  <input th:field="*{newPuppy}" type="hidden" style="width:100%"/>
+                  <input th:if="${productForm.newPuppy}" type="text"
+                     th:field="*{puppyCode}" style="width:100%"/>  
+                  <th:block th:if="${!productForm.newPuppy}">   
+                       <span th:utext="${productForm.puppyCode}"></span>   
+                       <input type="hidden" th:field="*{puppyCode}" style="width:100%"/>                                       
+                  </th:block>   
+               </td>
+               <td>
+                  <span class="error-message" th:if="${#fields.hasErrors('puppyCode')}" th:errors="*{puppyCode}">..</span>
+               </td>   
+            </tr>
+            <tr>
+               <td>Name </td>
+               <td><input th:field="*{puppyName}"  style="width:100%"/></td>
+               <td>
+                  <span class="error-message" th:if="${#fields.hasErrors('puppyName')}" th:errors="*{puppyName}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Price </td>
+               <td><input th:field="*{puppyPrice}"  style="width:100%"/></td>
+               <td>
+                  <span class="error-message" th:if="${#fields.hasErrors('puppyPrice')}" th:errors="*{puppyPrice}">..</span>
+               </td>
+            </tr>
+               <tr>
+               <td>Gender </td>
+               <td><input th:field="*{puppyGender}"  style="width:100%"/></td>
+               <td>
+                  <span class="error-message" th:if="${#fields.hasErrors('puppyGender')}" th:errors="*{puppyGender}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Image</td>
+               <td>
+                  <img th:src="@{|/productImage?code=${productForm.puppyCode}|}" style="width:153px; height:153px"/>
+               </td>
+            </tr>
+            <tr>
+               <td>Upload Image</td>
+               <td><input type="file" th:field="*{file}" /></td>
+            </tr>
+            <tr>
+               <td>&nbsp;</td>
+               <td>
+                  <input type="submit" value="Submit" />
+                  <input type="reset" value="Reset" />
+               </td>
+            </tr>
+         </table>
+      </form>
+       
+   </body>
+</html>

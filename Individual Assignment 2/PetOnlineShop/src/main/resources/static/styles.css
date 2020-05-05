@@ -1,0 +1,152 @@
+html {
+    background: white;
+}
+h3 {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    max-width: 100%;
+    min-width: 360px;
+    margin: 0px auto;
+    background: #F8F8F8;
+    padding:0px 5px;
+    text-align:center;
+}
+  
+.page-title  {
+    font-size:100%;
+    text-align: left;
+    margin:10px 0px;
+}
+.header-container {
+    text-align: left;
+	border-bottom: 1px solid #ccc;
+    position: relative;
+    background-color: #808080;
+    color: white;
+}
+.header-container .header-bar  {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+}
+.header-container .header-bar  a  {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 120%;
+}
+.menu-container {
+    text-align: right;
+    margin: 5px 5px;
+}
+.menu-container a {
+    margin: 5px 5px 5px 10px;
+    color: #004d99;
+    font-weight: bold;
+    text-decoration: none;
+}
+ 
+.site-name {
+    font-size:200%;
+    margin:10px 10px 10px 0px;
+    padding: 5px;
+}
+  
+.container  {
+    margin: 5px 0px;
+}
+  
+.demo-container, .login-container, .account-container {
+    padding: 5px;
+    border: 1px solid #ccc;
+    text-align:left;
+    margin:20px 0px;
+}
+  
+.customer-info-container {
+    text-align: left;
+    border: 1px solid #ccc;
+    padding: 0px 5px;
+}
+.product-preview-container {
+/*     border: 1px solid #ccc;
+    padding: 5px; */
+    width: 250px;
+    margin: 10px ;
+    display: inline-block;
+    text-align:left;
+}
+  
+.product-preview-container input {
+    width: 50px;
+}
+  
+  
+.product-image {
+    width: 150px;
+    height: 100px;
+}
+  
+ul {
+    list-style-type: none;
+    padding-left: 5px;
+    margin:5px;
+}
+ul a,input[type=submit], input[type=reset]{
+	background-color: #99f0f0; 
+  	color: black; 
+  	border: 2px solid #008CBA;
+  	padding: 10px 32px;
+  	border-radius:10px;
+  	text-decoration:none;
+}
+  
+.navi-item {
+    margin: 5px 5px 5px 20px;
+    color: blue;
+}
+.customer-container{
+	padding: 16px;
+}
+  
+.button-update-sc {
+    color: red;
+    margin: 5px 5px 5px 20px;
+}
+  
+.button-send-sc {
+    color: red;
+    margin: 5px 5px 5px 20px;
+}
+  
+.error-message {
+    font-size: 90%;
+    color: red;
+    font-style: italic;
+    position:relative;
+    left: -200px;
+    top:33px;
+}
+  
+.price {
+    color: blue;
+    font-weight: bold;
+}
+  
+.subtotal {
+    color: red;
+    font-weight: bold;
+}
+  
+.total {
+    color: red;
+    font-weight: bold;
+    font-size: 120%;
+}
+  
+table td {
+    padding: 10px;
+    text-align:left;
+}

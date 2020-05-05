@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+   <head>
+      <meta charset="UTF-8">
+      <title>Product List</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+   </head>
+   <body>
+      <th:block th:include="/_header"></th:block>
+      <th:block th:include="/_menu"></th:block>
+       
+      <div class="product-preview-container" th:each="prodInfo : ${paginationProducts.list}">
+         <ul>
+            <li><img class="product-image"
+               th:src="@{|/productImage?code=${prodInfo.puppyCode}|}" /></li>
+            <li>Code: <span th:utext="${prodInfo.puppyCode}"></span></li>
+            <li>Name: <span th:utext="${prodInfo.puppyName}"></span></li>
+            <li>Gender:<span th:utext="${prodInfo.puppyGender}"></span></li>
+            <li>Price: $<span th:utext="${#numbers.formatDecimal(prodInfo.puppyPrice,3,2,'COMMA')}"></span></li>
+            <li>&nbsp;</li>
+            <li>
+               <a th:href="@{|/buyProduct?code=${prodInfo.puppyCode}|}">Buy Now</a>
+            </li>
+            <li>&nbsp;</li>
+            <th:block sec:authorize="hasAuthority('ROLE_EMPLOYEE')">
+               <li>
+                 <a style="color:red;"
+                    th:href="@{|/admin/product?code=${prodInfo.puppyCode}|}">Edit Puppy</a>
+               </li>
+            </th:block>
+         </ul>
+      </div>
+       
+      <br/>
+      <div class="page-navigator" th:if="${paginationProducts.totalPages > 1}">
+         <th:block th:each="page : ${paginationProducts.navigationPages}">
+            <a th:href="@{|/productList?page=${page}|}" th:if="${page != -1}"
+               class="nav-item" th:utext="${page}" style="text-decoration:none;color:blue;padding: 8px 16px;"></a>
+               
+            <span class="nav-item" th:if="${page == -1}"> ... </span>
+             
+         </th:block>
+      </div>
+       
+   </body>
+</html>
